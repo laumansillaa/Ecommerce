@@ -1,4 +1,4 @@
-# Backend domentation 
+# Backend documentation 
 
 In 'back' folder you must execute 'npm install' command in order to install the required dependencies. 
 Then create '.env' file, in which the following enviroment variables must be defined: 
