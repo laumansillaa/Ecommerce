@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { Posts } = require('../../db').models;
+const { Post } = require('../../db').models;
 
 
 module.exports = async function (req, res, next ) {
@@ -15,13 +15,13 @@ module.exports = async function (req, res, next ) {
         if (!images || !status) {
             res.status(400).send('Data are required')
         } else {
-            const newPosts = await Posts.create({
+            const newPosts = await Post.create({
                 name: name,
                 race: race,
                 age: age,
                 size: size,
                 status: status,
-                observations,
+                observations: observations,
                 images: images
             })
 
