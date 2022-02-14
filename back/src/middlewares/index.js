@@ -1,4 +1,4 @@
-const cookieParser = require('cookie-parser');
+//const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
@@ -10,7 +10,7 @@ module.exports = function (app) {
 
     app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
     app.use(bodyParser.json({ limit: '50mb' }));
-    app.use(cookieParser());
+    //app.use(cookieParser());
     app.use(morgan('dev'));
     
     app.use(
@@ -38,21 +38,22 @@ module.exports = function (app) {
     // app.use((req, res, next) => {
     //     console.log('----- ACCESS MIDDLEWARE 1 -----')
     
-    //     if ( (!(req.url.startsWith('/session/') || req.urlstartsWith('/password/')) || req.url === '/session/signout') && 
+    //     if (
+    //         (!(req.url.startsWith('/session/') || req.url.startsWith('/password/'))  || req.url === '/session/signout') &&
     //         !req.isAuthenticated()
-    //     ) {
-    //         return res.status(401).send('Access denied.')
-    //     } else next() 
+    //       ) {
+    //         return res.status(401).send('Access denied.');
+    //       } else next()
     // })
     
     // app.use((req, res, next) => {
     //     console.log('------ ACCESS MIDDLEWARE 2 ------')
     
     //     if (
-    //         ((req.url.startsWith('/session/') && req.url !== '/session/signout') || req.url.startsWith('/password'))
-    //             && req.isAuthenticated()
-    //     ) {
-    //         return res.status(200).send('You have already signed up.')
-    //     } else next()
+    //         ((req.url.startsWith('/session/') && req.url !== '/session/signout') || req.url.startsWith("/password/")) &&
+    //         req.isAuthenticated()
+    //       ) {
+    //         return res.status(200).send('You have already signed up.');
+    //       } else next()
     // });
 };

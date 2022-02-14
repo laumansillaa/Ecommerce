@@ -1,4 +1,5 @@
 const mercadopago = require('mercadopago');
+const { Donations } = require('../../db').models;
 const {TOKEN_MERCADOPAGO} = process.env;
 
 mercadopago.configure({
@@ -7,7 +8,7 @@ mercadopago.configure({
 
 
 module.exports = async (req, res, next) => {
-    
+    console.log('------ ROUTE PROCESS PAYMENT ------')
     try {
         let preference = {
             items: [
@@ -19,9 +20,9 @@ module.exports = async (req, res, next) => {
                 }
             ],
             back_urls: {
-                success: 'http://localhost:3001/payment/success',
-                failure: 'http://localhost:3001/payment/failure',
-                pending: 'http://localhost:3001/payment/pending'
+                success: `http://localhost:3001/donations/success`,
+                failure: 'http://localhost:3001/donations/failure',
+                pending: 'http://localhost:3001/donations/pending'
             },
             marketplace: "Dognacioes",
             auto_return: "approved"
@@ -30,6 +31,15 @@ module.exports = async (req, res, next) => {
         mercadopago.preferences.create(preference)
 
         .then((response) => {
+            //console.log("SOY RESPONSE", response)
+            const userDonation = Donations.create({
+                preferenceId: response.body.id,
+                email: req.user.email,
+                ars: req.body.unit_price,
+                status: "IN PROCESS"
+            })
+            console.log("USER MERCADOPAGO", req.user)
+
             res.json({
                 id: response.body.id,
                 sandbox: response.body.sandbox_init_point

@@ -18,6 +18,7 @@ module.exports = async function (req, res, next) {
             email: email,
             password: password,
             phone: phone,
+            contributions: "0",
             verifieldUser: true,
             sessionType: 'email'
         })

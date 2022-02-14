@@ -17,6 +17,10 @@ module.exports = function (sequelize) {
                 isIn: [['google', 'email']]
             }
         },
+        contributions: {
+            type: DataTypes.STRING,
+            
+        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,

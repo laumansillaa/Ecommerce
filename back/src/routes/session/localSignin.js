@@ -3,7 +3,7 @@ const passport = require('../../passport');
 module.exports = function (req, res, next) {
     console.log('----- SESSION LOCAL SIGN IN ROUTE -----');
     passport.authenticate('local', (err, user) => {
-        console.log('SOY EL USER', user)
+        //console.log('SOY EL USER', user)
         if (!user) return res.status(401).send('Sign in failed: bad credentials');
         if (user.verifieldUser) {
             if (err) next(err);

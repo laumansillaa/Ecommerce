@@ -27,6 +27,7 @@ module.exports = async function (req, res, next ) {
 
             await req.user.addPosts(newPosts)
 
+            console.log('USER POSTS:', req.user)
 
             res.status(200).send('Post made successfully ')
 
