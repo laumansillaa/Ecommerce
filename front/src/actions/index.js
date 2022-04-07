@@ -19,3 +19,13 @@ export function localSignIn(payload) {
         })
     }
 }
+
+export function getdata(payload){
+    return async function (dispatch) {
+        var userData = await axios.get('http://localhost:3001/user/getdata', payload)
+        return dispatch({
+            type: 'USER_DATA',
+            payload: userData
+        })
+    }
+}

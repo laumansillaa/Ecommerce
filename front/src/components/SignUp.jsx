@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 //import {Link} from 'react-router-dom';
 import {signUpUser } from '../actions/index';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import {Link, Navigate, useNavigate } from 'react-router-dom';
 
 //import axios from 'axios';
 
@@ -10,8 +11,10 @@ import {useDispatch, useSelector} from 'react-redux';
 
 
 
-export default function CreateUser() {
+export default function SignUp() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const [input, setInput] = useState({
         firstname: '',
         lastname: '',
@@ -20,9 +23,9 @@ export default function CreateUser() {
         password: ''        
     })
 
-    // useEffect(() => {
-    //     dispatch(signUpUser())
-    // }, [dispatch])
+    useEffect(() => {
+        dispatch(signUpUser())
+    }, [dispatch])
 
 
 
@@ -44,6 +47,7 @@ export default function CreateUser() {
             email: '',
             password: ''  
         })
+        navigate('/home')
     }
 
 
@@ -51,7 +55,7 @@ export default function CreateUser() {
         <div>
             <div>
                 <div>
-                    <h2>Ingrese sus datos</h2>
+                    <h2>Ingrese sus datos aqui</h2>
                 </div>
                 <form onSubmit={(e) => handleSubmit(e)} >
                     <div>
@@ -77,18 +81,10 @@ export default function CreateUser() {
                         <input type='input' value={input.password} name='password' onChange={(e) => handleChange(e)}/>
                     </div>
                     <button type='submit' >Crear usuario!</button>
+                    <button><Link to= '/localsignin'>Ingresar</Link> </button>
                 </form>
             </div>
         </div>
     )
-
-
-
-
-
-
-
-
-
 
 }

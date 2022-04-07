@@ -15,6 +15,11 @@ function rootReducer (state = initialState, action) {
                 ...state,
                 user: action.payload
             }
+        case 'USER_DATA':
+            return {
+                ...state,
+                user: action.payload
+            }
         default: 
             return state
     }

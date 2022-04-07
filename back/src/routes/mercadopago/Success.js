@@ -47,7 +47,7 @@ module.exports = async (req, res, next) => {
         } 
 
 
-        console.log("SUCCESS DONATION ----> ",updateDonation[0])
+        //console.log("SUCCESS DONATION ----> ",updateDonation[0])
 
 
         res.status(200).send('Soy success')
