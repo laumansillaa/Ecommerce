@@ -23,7 +23,7 @@ db.sync({ force:true }).then(async () => {
         size: "Grande",
         status: "adopcion",
         observations: "Le gusta comer mucho",
-        images: "../back/src/asset/Labrador.jpeg"
+        images: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Labrador_Retriever_%281210559%29.jpg/245px-Labrador_Retriever_%281210559%29.jpg"
     })
 
     const dogUno = await Post.create({
