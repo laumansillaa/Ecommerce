@@ -3,7 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import SignUp from './components/SignUp'
 import LocalSignin from './components/LocalSignin';
 import LandingPage from './components/LandingPage';
-import Home from './components/Home'
+import Home from './components/Home';
+import Detail from './components/cardDetail';
 
 
 
@@ -15,6 +16,7 @@ function App() {
           <Route exact path= '/signup' element= {<SignUp/>}/>
           <Route exact path= '/localsignin' element= {<LocalSignin/>}/>
           <Route exact path= '/home' element={<Home/>}/>
+          <Route exact= '/detail/:id' element={<Detail/>}/>
           
 
         </Routes>

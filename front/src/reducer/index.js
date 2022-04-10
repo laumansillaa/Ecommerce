@@ -1,6 +1,7 @@
 const initialState = {
     user: [],
-    posts: []
+    posts: [],
+    detail: []
 }
 
 
@@ -25,6 +26,11 @@ function rootReducer (state = initialState, action) {
             return  {
                 ...state,
                 posts: action.payload
+            }
+        case 'POST_DETAIL':
+            return {
+                ...state,
+                detail: action.payload
             }
         default: 
             return state

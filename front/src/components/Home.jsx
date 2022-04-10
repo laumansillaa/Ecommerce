@@ -2,7 +2,7 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { getAllPost } from "../actions/index";
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Card from './Card';
 import Paginado from './Paginado'; 
 
@@ -31,11 +31,6 @@ export default function Home () {
     
 
 
-
-
-
-
-
     return (
 
         <div>
@@ -62,14 +57,18 @@ export default function Home () {
             <div>
                 {
                     currentPosts?.map(post => {
+                        
                         return (
                             <div>
-                                
-                                    <Card key={post.id} posts={post}/>                                
+                                <Link to={'/detail/ ' + post.id} style={{textDecoration: 'none'}}  >
+                                    <Card key={post.id} posts={post}/>   
+                                    <h1>{post.id}</h1>     
+                                </Link>
                                 
                             </div>
-                        )                    
-                    })
+                            
+                        )                  
+                    }) 
                 }
             </div>
         </div>

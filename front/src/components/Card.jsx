@@ -5,7 +5,7 @@ import React from "react";
 
 
 export default function Card ({posts}){
-    console.log('CARDS POSTS ', posts)
+    //console.log('CARDS POSTS ', posts)
 
     return (
         <div className="card">

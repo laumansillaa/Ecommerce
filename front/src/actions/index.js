@@ -42,3 +42,14 @@ export function getAllPost() {
         })
     }
 }
+
+export function getPostDetail(payload) {
+    return async function (dispatch){
+        var postId = await axios.get(`http://localhost:3001/posts/${payload}`)
+        console.log('ACTIONS DETAILD', postId.data)
+        return dispatch({
+            type: 'POST_DETAIL',
+            payload: postId.data
+        })
+    }
+}
