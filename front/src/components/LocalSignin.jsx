@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { localSignIn } from "../actions/index";
 
 
 export default function LocalSignin() {
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const [input, setInput] = useState({
         email: '',
         password: ''
@@ -25,7 +26,10 @@ export default function LocalSignin() {
             email: '',
             password: ''
         })
+        navigate('/home', {replace: true})
     }
+    // replace:true para remplazar la /login, y que el usuario no regrese a la pagina
+    // de inicio de sesion al hacer clic en el boton atras, desp de iniciar sesion.
 
 
     return (

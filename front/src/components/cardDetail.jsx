@@ -1,21 +1,19 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getPostDetail } from "../actions/index";
 
 
 
-export default function Detail(props){
-    console.log("SOY DEDAILT", props)
+export default function Detail (){
     const {id} = useParams();
-    const params = useParams()
-    console.log('USE PARAMS', params)
+    console.log("SOY PARAMS", id)
 
     const dispatch = useDispatch();
 
     const post = useSelector((state) => state.detail);
-    console.log('SOY POSTS id', post[0].id)
+    //console.log('SOY POSTS ID', post[0].id)
 
     useEffect(() => {
         dispatch(getPostDetail(id));

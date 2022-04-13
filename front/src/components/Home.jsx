@@ -11,7 +11,7 @@ export default function Home () {
 
     const dispatch = useDispatch();
     const posts = useSelector(state => state.posts);
-    console.log('SOY POSTS', posts)
+    //console.log('SOY POSTS', posts)
 
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(5);
@@ -59,7 +59,7 @@ export default function Home () {
                     currentPosts?.map(post => {
                         
                         return (
-                            <div>
+                            <div key={post.id}>
                                 <Link to={'/detail/ ' + post.id} style={{textDecoration: 'none'}}  >
                                     <Card key={post.id} posts={post}/>   
                                     <h1>{post.id}</h1>     

@@ -13,8 +13,8 @@ export default function Paginado ({postsPerPage, posts, paginado}) {
                 pageNumber && 
                 pageNumber.map(number => {
                     return (
-                        <a >
-                            <button onClick={() => paginado(number)}>{number}</button>
+                        <a key={number}>
+                            <button onClick={() => paginado(number)} >{number}</button>
                         </a>
                     )
                 })
